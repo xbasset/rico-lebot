@@ -296,7 +296,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
-For questions, suggestions, or support, please open an issue on the [GitHub repository](https://github.com/xbasset/rico-lebot/issues) or contact [youremail@example.com](mailto:youremail@example.com).
+For questions, suggestions, or support, please open an issue on the [GitHub repository](https://github.com/xbasset/rico-lebot/issues) 
 
 ---
 
