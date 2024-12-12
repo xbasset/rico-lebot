@@ -171,3 +171,5 @@ data
 prod_environment_variables.json
 
 reinit_db.sh
+
+roles/private
