@@ -254,39 +254,7 @@ npx tailwindcss -i static/css/input.css -o static/css/output.css --watch
 - **`static/js/voice-ui.js`**: Handles the Voice UI interactions, including connecting to LiveKit rooms, managing transcriptions, and updating the UI based on conversation states.
 - **`static/css/output.css`**: Compiled Tailwind CSS for styling the frontend components.
 
-### Contributing
-
-Contributions are welcome! Whether it's reporting bugs, suggesting features, or submitting pull requests, your support helps improve Rico LeBot.
-
-
-1. **Fork the Repository**: Click the "Fork" button at the top-right corner of the repository page.
-2. **Clone Your Fork**:
-
-   ```bash
-   git clone https://github.com/xbasset/rico-lebot.git
-   cd rico-lebot
-   ```
-
-3. **Create a New Branch**:
-
-   ```bash
-   git checkout -b feature/YourFeatureName
-   ```
-
-4. **Make Your Changes**: Implement your feature or fix.
-5. **Commit Your Changes**:
-
-   ```bash
-   git commit -m "Add feature: YourFeatureName"
-   ```
-
-6. **Push to Your Fork**:
-
-   ```bash
-   git push origin feature/YourFeatureName
-   ```
-
-7. **Open a Pull Request**: Navigate to the original repository and click "New Pull Request".
+1. **Open a Pull Request**: Navigate to the original repository and click "New Pull Request".
 
 ## License
 
