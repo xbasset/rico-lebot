@@ -1,14 +1,14 @@
 # <img alt="Rico LeBot" src="static/images/voice-ai.jpeg" style="width:50px; border-radius: 20%; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);"> Rico LeBot
 
-**Rico LeBot** is an open-source, fully customizable voice assistant built with Flask, LiveKit, and OpenAI's language models. It enables the creation of distinct roles for AI assistants, allowing tailored interactions and functionalities to suit various use cases.
+**Rico LeBot** is an open-source, fully customizable Realtime AI assistant built with Flask, LiveKit, and OpenAI's language models. It enables the creation of distinct roles for AI assistants, allowing tailored interactions and functionalities to suit various use cases.
 
 ## Why?
 
 Building real-time AI experiences is fundamentally different from traditional text-based LLM integrations, requiring distinct architectural considerations:  
-
-**Key Differences**:
 - **Bidirectional Streams**: Real-time, long-form client-server and server-client data flows.
 - **Beyond Chat UI**: Interactions involve mixed inputs like microphone, camera, and text, not just text token streams.
+
+> The project lays the groundwork for building a robust foundation for a Realtime AI assistant, emphasizing clarity with minimal coding.
 
 **Challenges Addressed**:
 - **WebRTC Over Websockets**: Ensures robust long-form connections for audio/video streams.
@@ -17,6 +17,12 @@ Building real-time AI experiences is fundamentally different from traditional te
 **Architecture Design**
 - **Frontend-Backend Separation**: Clear code boundaries to simplify development and security.
 - **Backend-Only Secrets**: Safeguard API keys and sensitive logic by isolating them from the frontend.
+
+## Demo
+
+![Demo Screenshot](docs/images/demo_screenshot_1.png)
+
+![Dev Example](docs/images/demo_screenshot_2.png)
 
 ## Features
 
@@ -27,12 +33,6 @@ Building real-time AI experiences is fundamentally different from traditional te
 - **Customizable Roles**: Define various roles for the assistant, each with unique instructions and configurations.
 - **Session Management**: Handle user sessions with capabilities to start, terminate, and summarize conversations.
 - **Agent Authentication**: Manage Flask sessions and LiveKit tokens.
-
-## Demo
-
-![Demo Screenshot](docs/images/demo_screenshot_1.png)
-
-![Dev Example](docs/images/demo_screenshot_2.png)
 
 ## Installation
 
@@ -80,17 +80,13 @@ Open the `.env` file and populate it with your credentials:
 ```env
 # .env
 
-# Flask Secret Key
-APP_SECRET_KEY=your_flask_secret_key
+# OpenAI Credentials
+OPENAI_API_KEY=your_openai_api_key
 
 # LiveKit Credentials
 LIVEKIT_API_KEY=your_livekit_api_key
 LIVEKIT_API_SECRET=your_livekit_api_secret
 LIVEKIT_URL=your_livekit_server_url
-
-# OpenAI Credentials
-OPENAI_API_KEY=your_openai_api_key
-LLM_MODEL=your_preferred_openai_model  # e.g., gpt-4
 ```
 
 ## Usage
@@ -160,6 +156,7 @@ Ensure you have a LiveKit account and have obtained the necessary API credential
 
 Set your OpenAI API key and the `MultimodalAgent` from the livekit library will manage the selection of the 4o-realtime-model.
 
+# Development
 ## Directory Structure
 
 The choices of a Flask Backend and HTML + TailwindCSS + AlpineJS Frontend is 
@@ -196,6 +193,24 @@ RicoLeBot/
 └── README.md
 ```
 
+## Frontend Overview
+
+The frontend is built using HTML, Tailwind CSS for styling, and Alpine.js for interactivity. It communicates with the backend via API endpoints to handle real-time voice interactions.
+
+
+### Node.js Dependencies for TailwindCSS rebuild
+
+```bash
+npm install
+```
+
+Don't forget to use the Tailwind tools to update the CSS when you update the frontend.
+
+```bash
+npx tailwindcss -i static/css/input.css -o static/css/output.css --watch
+```
+
+
 ## API Endpoints
 
 ### Home Page
@@ -227,24 +242,6 @@ RicoLeBot/
 - **URL**: `/api/save`
 - **Method**: `POST`
 - **Description**: Saves specific information from the conversation to a file.
-
-## Frontend Overview
-
-The frontend is built using HTML, Tailwind CSS for styling, and Alpine.js for interactivity. It communicates with the backend via API endpoints to handle real-time voice interactions.
-
-
-## Developement: 
-### Node.js Dependencies for TailwindCSS rebuild
-
-```bash
-npm install
-```
-
-Don't forget to use the Tailwind tools to update the CSS when you update the frontend.
-
-```bash
-npx tailwindcss -i static/css/input.css -o static/css/output.css --watch
-```
 
 
 ### Key Components
