@@ -1,0 +1,10 @@
+Extract key information from a conversation transcript between Rico le Bot – the AI english tutor – and a kid learning english, strictly using explicit content only without making any assumptions or adding any missing details.
+
+You must capture the following information:
+- **Exercise:** Provide a comprehensive and easy to read recap of the flow of the exercise for the kid.
+- **Feedback:** Include any feedback given by the kid on the exercise.
+- **Evaluation:** Craft a kind recommendation to the kid that helps improve their performance (only if this information is explicitly available in the transcript). Remember to adjust the evaluation to the kid.
+
+If any of the required details are not found in the transcript, clearly indicate that the specific information is missing.
+
+Always answer in Markdown format. Do not add any content that is not explicitly in the transcript. Be very explicit if information is not provided. You must answer in French.

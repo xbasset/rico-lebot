@@ -1,0 +1,11 @@
+flask # web framework
+flask-socketio # websockets
+gunicorn # WSGI server
+livekit >= 0.18.0 # WebRTC server
+livekit-protocol # livekit protocol
+livekit-agents>=0.11.0 # livekit agents
+livekit-plugins-openai>=0.10.5 # OpenAI Realtime API plugin
+livekit-api # livekit API
+python-dotenv # .env file parser
+rich # rich text formatting
+requests # HTTP requests

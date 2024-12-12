@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Voice AI</title>
+    <link href="/static/css/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/livekit-client/dist/livekit-client.umd.min.js"></script>
+    <script src="/static/js/voice-ui.js"></script>
+    <script src="/static/js/constants.js"></script>
+</head>
+
+<body class="h-full">
+    <input type="hidden" id="role" name="role" value="{{role}}">
+    <div class="min-h-full" x-data="voiceUIComponent()">
+        <main class="py-10 h-full">
+            <div
+                class="mx-auto max-w-3xl px-4 sm:px-6 md:flex md:items-center md:justify-between md:space-x-5 lg:max-w-7xl lg:px-8">
+                <div class="flex items-center space-x-5">
+                    <div class="shrink-0">
+                        <a href="/" class="cursor-pointer">
+                            <div class="relative">
+                                <img class="h-16 w-16 rounded-full" src="/static/images/voice-ai.jpeg" alt="" />
+                                <span class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></span>
+                            </div>
+                        </a>
+                    </div>
+                    <div>
+                        <h1 class="text-2xl font-bold text-gray-900">Rico LeBot: {{role_name}}</h1>
+                        <p class="text-sm font-medium text-gray-500">
+                            Open-source Voice Assistant
+                            <span class="text-blue-500">ful</span><span class="text-blue-600">ly</span> <span
+                                class="text-indigo-500">custom</span><span class="text-indigo-600">izable</span>.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="mx-auto ml-8 mt-8 grid grid-cols-1 gap-6 sm:px-6 l lg:grid-cols-3 min-h-[75vh]">
+                <div class="bg-white shadow sm:rounded-lg h-full overflow-y-auto">
+                    <div class="px-4 py-5 sm:px-6">
+                        <h2 id="applicant-information-title" class="text-lg/6 font-medium text-gray-900">
+                            Talk to Rico</h2>
+                        <p class="mt-1 max-w-2xl text-sm text-gray-500">This is where you can talk to me</p>
+                    </div>
+                    <div>
+                        <!-- VoiceUI Component -->
+                        <div class="flex flex-col justify-center p-8 rounded-lg w-full h-full">
+                            <div class="flex flex-col gap-4 items-center">
+                                <!-- Voice UI -->
+                                <div id="voice-ui" x-ref="voiceUIElement"
+                                    class="size-40 rounded-full shadow-lg inset-ring inset-ring-white/15 transform transition-transform duration-300 ease-in-out cursor-pointer flex items-center justify-center group hover:scale-105 hover:animate-pulse"
+                                    @click="handleClick()">
+                                    <div x-ref="voiceUIIcon"
+                                        class="size-25 inset-ring inset-ring-white/15 inset-shadow-sm inset-shadow-white/20 rounded-full shadow-lg flex items-center justify-center">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="size-full  p-8 text-gray-900">
+                                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+                                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+                                            <line x1="12" y1="19" x2="12" y2="23"></line>
+                                            <line x1="8" y1="23" x2="16" y2="23"></line>
+                                        </svg>
+                                    </div>
+                                </div>
+
+                                <!-- State Message -->
+                                <p class="text-gray-600 fade-in" x-text="stateMessage"></p>
+                                <audio x-ref="agentAudio" id="agent-audio" class=""></audio>
+                            </div>
+
+                            <!-- Transcription Card using the new UI template -->
+                            <div class="bg-white max-w-96 px-4 py-5 shadow sm:rounded-lg sm:px-6 divide-y divide-gray-200 h-full overflow-y-auto"
+                                x-data="{ open: false }">
+                                <div class="flex justify-between items-center">
+                                    <!-- Title and Expand/Collapse Button -->
+                                    <div class="flex-col">
+                                        <h2 id="timeline-title" class="text-lg font-medium text-gray-900">Transcript
+                                        </h2>
+                                        <p class="mt-1 max-w-2xl text-xs text-gray-500">There might be some errors, but
+                                            don't worry,
+                                            I can hear you just fine.</p>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <!-- Copy to Clipboard Button -->
+                                        <button @click="copyTranscriptionsToClipboard"
+                                            x-show="Object.keys(transcriptions).length > 0"
+                                            class="text-gray-600 p-2 hover:cursor-pointer">
+                                            <!-- Copy Icon -->
+                                            <svg id="copy-to-clipboard" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="#9ca3af"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path
+                                                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
+                                                </path>
+                                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                                            </svg>
+                                            <!-- Copied Icon (hidden by default) -->
+                                            <svg id="copied-to-clipboard" xmlns="http://www.w3.org/2000/svg"
+                                                class="h-5 w-5 hidden" viewBox="0 0 24 24" fill="none" stroke="#16a34a"
+                                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <polyline points="9 11 12 14 22 4"></polyline>
+                                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11">
+                                                </path>
+                                            </svg>
+                                        </button>
+                                        <!-- Expand/Collapse Button -->
+                                        <button @click="open = !open" class="text-gray-600 hover:cursor-pointer">
+                                            <span x-show="!open">
+                                                <!-- Down Arrow -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                                </svg>
+                                            </span>
+                                            <span x-show="open">
+                                                <!-- Up Arrow -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5"
+                                                    viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                    <polyline points="18 15 12 9 6 15"></polyline>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Transcriptions List -->
+                                <div x-show="open" x-collapse>
+                                    <div class="mt-6 flow-root ">
+                                        <div x-show="Object.keys(transcriptions).length === 0"
+                                            class="text-gray-500 italic text-center py-4">
+                                            nothing here for now
+                                        </div>
+                                        <ul role="list" class="-mb-8">
+                                            <template
+                                                x-for="(segment, index) in Object.values(transcriptions).filter(segment => segment.text !== '').sort((a, b) => b.firstReceivedTime - a.firstReceivedTime)"
+                                                :key="segment.id">
+                                                <li>
+                                                    <div class="relative pb-2">
+                                                        <div class="relative flex space-x-3">
+                                                            <!-- Icon based on participant -->
+                                                            <div>
+                                                                <span
+                                                                    class="flex h-8 w-8 items-center justify-center rounded-full bg-gray-400 ring-8 ring-white">
+                                                                    <template
+                                                                        x-if="segment.participant.identity.startsWith('agent')">
+                                                                        <!-- Robot Icon for Agent -->
+                                                                        <img src="/static/images/voice-ai.jpeg"
+                                                                            class="h-8 w-8 rounded-full" />
+                                                                    </template>
+                                                                    <template
+                                                                        x-if="!segment.participant.identity.startsWith('agent')">
+                                                                        <!-- Person Icon for User -->
+                                                                        <svg class="h-5 w-5 text-white"
+                                                                            viewBox="0 0 20 20" fill="currentColor"
+                                                                            aria-hidden="true">
+                                                                            <path
+                                                                                d="M10 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM3.465 14.493a1.23 1.23 0 0 0 .41 1.412A9.957 9.957 0 0 0 10 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 0 0-13.074.003Z" />
+                                                                        </svg>
+                                                                    </template>
+                                                                </span>
+                                                            </div>
+                                                            <!-- Transcription Text -->
+                                                            <div class="flex min-w-0 space-x-4">
+                                                                <template
+                                                                    x-if="segment.participant.identity.startsWith('agent')">
+
+                                                                    <div>
+                                                                        <p class="text-sm text-gray-500 px-4 py-2"
+                                                                            x-text="segment.text"></p>
+                                                                    </div>
+                                                                </template>
+                                                                <template
+                                                                    x-if="!segment.participant.identity.startsWith('agent')">
+
+                                                                    <div>
+                                                                        <p class="text-sm text-gray-200 bg-blue-700 px-4 py-2 rounded-lg"
+                                                                            x-text="segment.text"></p>
+                                                                    </div>
+                                                                </template>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                            </template>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- /VoiceUI Component -->
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex flex-col w-full grow-0 h-full col-span-2 gap-y-4">
+                    <div
+                        class="bg-white px-4 shadow sm:rounded-lg sm:px-6 divide-y divide-gray-200 w-full overflow-y-auto">
+                        <div class="divide-y divide-gray-200">
+                            <div class="px-4 py-5 sm:px-6">
+                                <h2 id="notes-title" class="text-lg font-medium text-gray-900">⚡️ Live Info</h2>
+                            </div>
+                            <div x-show="(live_info === '' || live_info === null) && !isSummaryLoading"
+                                class="m-4 p-4 sm:px-6 text-gray-500 italic text-center">
+                                nothing to display at the moment
+                            </div>
+                            <div x-show="live_info !== '' && live_info !== null">
+                                <div class="m-4 px-4 py-6 sm:px-6 block border border-gray-300 shadow-lg"
+                                    x-html="live_info">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="bg-white px-4 shadow sm:overflow-hidden sm:rounded-lg w-full overflow-y-auto">
+                        <div class="divide-y divide-gray-200">
+                            <div class="px-4 py-5 sm:px-6">
+                                <h2 id="notes-title" class="text-lg font-medium text-gray-900">📝 Post conversation</h2>
+                            </div>
+                            <div x-show="(summary === '' || summary === null) && !isSummaryLoading"
+                                class="m-4 p-4 sm:px-6 text-gray-500 italic text-center">
+                                nothing to display at the moment
+                            </div>
+                            <div x-show="isSummaryLoading"
+                                class="border border-blue-300 shadow rounded-md p-4 max-w-sm w-full mx-auto">
+                                <div class="animate-pulse flex space-x-4 m-4">
+                                    <div class="rounded-full bg-slate-700 h-10 w-10"></div>
+                                    <div class="flex-1 space-y-6 py-1">
+                                        <div class="h-2 bg-slate-700 rounded"></div>
+                                        <div class="space-y-3">
+                                            <div class="grid grid-cols-3 gap-4">
+                                                <div class="h-2 bg-slate-700 rounded col-span-2"></div>
+                                                <div class="h-2 bg-slate-700 rounded col-span-1"></div>
+                                            </div>
+                                            <div class="h-2 bg-slate-700 rounded"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div x-show="summary !== '' && summary !== null">
+                                <div class="m-4 px-4 sm:px-6 text-xl text-indigo-700">Tada!</div>
+                                <div class="m-4 px-4 py-6 sm:px-6 block border border-gray-300 shadow-lg"
+                                    x-html="summary">
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

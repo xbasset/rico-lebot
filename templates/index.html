@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-100">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Voice AI - Select Role</title>
+    <link href="/static/css/output.css" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+
+<body class="h-full flex items-center justify-center">
+    <div class="flex-col space-y-8">
+    <div class="flex items-center space-x-5">
+        <div class="shrink-0">
+            <div class="relative">
+                <img class="h-16 w-16 rounded-full" src="/static/images/voice-ai.jpeg" alt="">
+                <span class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></span>
+            </div>
+        </div>
+        <div>
+            <h1 class="text-4xl font-bold text-gray-900 m-4">Rico LeBot</h1>
+            <p class="text-xl font-medium text-gray-500 m-4">
+                Open-source Voice Assistant
+                            <span class="text-blue-500">ful</span><span class="text-blue-600">ly</span> <span
+                                class="text-indigo-500">custom</span><span class="text-indigo-600">izable</span>.
+            </p>
+        </div>
+    </div>
+    <div class="flex flex-col space-y-8">
+        <h2 class="text-4xl font-bold text-gray-900">Role to play:</h2>
+        {% for role in roles %}
+        <button class="px-8 py-4 bg-blue-500 text-4xl text-white rounded hover:bg-blue-600" onclick="window.location.href='/run/{{ role.folder }}'">
+            {{ role.name }}
+        </button>
+        {% endfor %}
+    </div>
+</div>
+</body>
+
+</html>
