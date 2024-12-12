@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 from flask import Flask, session, request, render_template
-from core.config import APP_SECRET_KEY, LLM_MODEL
+from core.config import APP_SECRET_KEY, LLM_MODEL, SHOW_PRIVATE_ROLES
 
 from extensions import socketio
 
@@ -22,7 +22,7 @@ socketio.init_app(app)
 roles = []
 
 
-def load_roles():
+def load_roles(show_private=SHOW_PRIVATE_ROLES):
     """ Load roles from the `roles folder`"""
     global roles
     roles = []
@@ -30,7 +30,7 @@ def load_roles():
         if resource != "__pycache__" and resource != "__init__.py" and resource != "private":
             if os.path.isdir(f"roles/{resource}"):
                 roles.append({"folder": resource, "name": resource.replace("_", " ").replace("-", " ").title()})
-        elif resource == "private":
+        elif resource == "private" and show_private:
             for role in os.listdir("roles/private"):
                 if os.path.isdir(f"roles/private/{role}"):
                     roles.append({"folder": f"{resource}/{role}", "name": role.replace("_", " ").replace("-", " ").title()})
