@@ -34,3 +34,9 @@ You can call different functions:
 
 Speak fast, and respond to the user according to their requests.
 ```
+
+## Example
+
+Let's create an Interactive Storytelling AI, step by step.
+
+https://github.com/user-attachments/assets/018cea35-421a-4c23-a26c-90a422cf7ee1
