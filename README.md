@@ -43,7 +43,7 @@ Building real-time AI experiences is fundamentally different from traditional te
 - **Python 3.9+**: Ensure Python is installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
 - **TailwindCSS**: Beautiful interface in no time. Follow the [installation guide of Tailwind CLI](https://tailwindcss.com/docs/installation)
 - **LiveKit Account**: Sign up for LiveKit to obtain API credentials. [OpenAI Realtime API Quickstart](https://docs.livekit.io/agents/quickstarts/s2s/)
-- **OpenAI API Key**: Obtain your API key from [OpenAI](https://platform.openai.com/account/api-keys).
+- **OpenAI API Key**: Obtain your API key from [OpenAI](https://platform.openai.com/settings/organization/api-keys).
 
 The fastest way to start and try Rico Lebot is using Docker
 

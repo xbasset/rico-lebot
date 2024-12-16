@@ -6,7 +6,7 @@ The fastest way to start and try Rico Lebot is using Docker
 
 ### Pre-requisites:
 - **LiveKit Account**: Sign up for LiveKit to obtain API credentials. [LiveKit Realtime API Quickstart](https://docs.livekit.io/agents/quickstarts/s2s/)
-- **OpenAI API Key**: Obtain your API key from [OpenAI](https://platform.openai.com/account/api-keys).
+- **OpenAI API Key**: Obtain your API key from [OpenAI](https://platform.openai.com/settings/organization/api-keys).
 
 ### Clone the Repository
 
