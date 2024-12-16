@@ -108,8 +108,11 @@ docker run -p 5001:5001 --name rico rico
 For a deeper dive into setting up and customizing Rico LeBot, here are some useful links:
 
 🔗 📚 [Main Documentation](docs/index.md): This page provides an overview of the project, including architecture, features, and challenges addressed.
+
 🔗 [Getting Started Guide](docs/getting_started.md): This guide will walk you through the process of installing and running a demo instance of Rico LeBot. It's the perfect starting point for new users.
+
 🔗 [Agent Architecture](docs/agent_architecture.md): Learn about the technical architecture of Rico LeBot, including the system's components and interactions.
+
 🔗 [Customize Roles](docs/roles.md): Learn how to create, update, and tailor the roles of your AI assistants to fit different use cases. This documentation will guide you through the customization process to enhance Rico LeBot's capabilities.
 
 ## License
