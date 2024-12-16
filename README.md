@@ -24,7 +24,7 @@ Building real-time AI experiences is fundamentally different from traditional te
 
 ## Demo
 
-![](/docs/video/rico-demo.mp4)
+https://github.com/user-attachments/assets/998caccb-a12c-477c-ad7f-5db69e384ef3
 
 ![Dev Example](docs/images/demo_screenshot_frontend.png)
 
