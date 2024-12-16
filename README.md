@@ -24,6 +24,8 @@ Building real-time AI experiences is fundamentally different from traditional te
 
 ## Demo
 
+https://github.com/xbasset/rico-lebot/docs/video/rico-demo.mp4
+
 ![Dev Example](docs/images/demo_screenshot_frontend.png)
 
 ## Features
