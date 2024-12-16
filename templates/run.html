@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Voice AI</title>
+    <title>Rico Lebot – Realtime AI</title>
     <link href="/static/css/output.css" rel="stylesheet">
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -24,7 +24,7 @@
                     <div class="shrink-0">
                         <a href="/" class="cursor-pointer">
                             <div class="relative">
-                                <img class="h-16 w-16 rounded-full" src="/static/images/voice-ai.jpeg" alt="" />
+                                <img class="h-16 w-16 rounded-full" src="/static/images/rico-lebot.jpeg" alt="" />
                                 <span class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></span>
                             </div>
                         </a>
@@ -33,8 +33,7 @@
                         <h1 class="text-2xl font-bold text-gray-900">Rico LeBot: {{role_name}}</h1>
                         <p class="text-sm font-medium text-gray-500">
                             Open-source Voice Assistant
-                            <span class="text-blue-500">ful</span><span class="text-blue-600">ly</span> <span
-                                class="text-indigo-500">custom</span><span class="text-indigo-600">izable</span>.
+                            <span class="text-indigo-600">fully customizable</span>.
                         </p>
                     </div>
                 </div>
@@ -153,7 +152,7 @@
                                                                     <template
                                                                         x-if="segment.participant.identity.startsWith('agent')">
                                                                         <!-- Robot Icon for Agent -->
-                                                                        <img src="/static/images/voice-ai.jpeg"
+                                                                        <img src="/static/images/rico-lebot.jpeg"
                                                                             class="h-8 w-8 rounded-full" />
                                                                     </template>
                                                                     <template
@@ -222,10 +221,10 @@
                         </div>
                     </div>
 
-                    <div class="bg-white px-4 shadow sm:overflow-hidden sm:rounded-lg w-full overflow-y-auto">
+                    <div x-show="(summary !== '' && summary !== null) || isSummaryLoading" class="bg-white px-4 shadow sm:overflow-hidden sm:rounded-lg w-full overflow-y-auto">
                         <div class="divide-y divide-gray-200">
                             <div class="px-4 py-5 sm:px-6">
-                                <h2 id="notes-title" class="text-lg font-medium text-gray-900">📝 Post conversation</h2>
+                                <h2 id="notes-title" class="text-lg font-medium text-gray-900">📝 Recap</h2>
                             </div>
                             <div x-show="(summary === '' || summary === null) && !isSummaryLoading"
                                 class="m-4 p-4 sm:px-6 text-gray-500 italic text-center">
@@ -248,7 +247,6 @@
                                 </div>
                             </div>
                             <div x-show="summary !== '' && summary !== null">
-                                <div class="m-4 px-4 sm:px-6 text-xl text-indigo-700">Tada!</div>
                                 <div class="m-4 px-4 py-6 sm:px-6 block border border-gray-300 shadow-lg"
                                     x-html="summary">
                                 </div>

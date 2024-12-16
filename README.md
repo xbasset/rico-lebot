@@ -1,4 +1,4 @@
-# <img alt="Rico LeBot" src="static/images/voice-ai.jpeg" style="width:50px; border-radius: 20%; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);"> Rico LeBot
+# <img alt="Rico LeBot" src="static/images/rico-lebot.jpeg" style="width:50px; border-radius: 20%; box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);"> Rico LeBot
 
 **Rico LeBot** is an open-source, fully customizable Realtime AI assistant built with Flask, LiveKit, and OpenAI's language models. It enables the creation of distinct roles for AI assistants, allowing tailored interactions and functionalities to suit various use cases.
 
@@ -91,7 +91,9 @@ LIVEKIT_URL=your_livekit_server_url
 
 ## Usage
 
-### Running the Application
+### CLI
+
+#### Running the Application
 
 Start the Flask application with SocketIO enabled.
 
@@ -101,7 +103,7 @@ python app.py
 
 The application will be accessible at `http://localhost:5001`.
 
-### Running the Agent
+#### Running the Agent
 
 In a separate terminal window, ensure your virtual environment is activated and run the agent script.
 
@@ -110,6 +112,23 @@ python core/agent.py
 ```
 
 The agent connects to the LiveKit room and starts interacting based on the defined role.
+
+
+### Docker
+
+You can build the Docker image named `rico` and run it using the following commands.
+
+#### Build the Docker Image
+
+```bash
+docker build -t rico .
+```
+
+#### Run the Docker Container
+
+```bash
+docker run -p 5001:5001 rico
+```
 
 ## Configuration
 
@@ -182,7 +201,7 @@ RicoLeBot/
 │   ├── css/
 │   │   └── output.css
 │   └── images/
-│       └── voice-ai.jpeg
+│       └── rico-lebot.jpeg
 ├── templates/
 │   ├── index.html
 │   └── run.html

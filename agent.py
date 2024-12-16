@@ -14,6 +14,7 @@ from livekit.agents import (
     AutoSubscribe,
     JobContext,
     WorkerOptions,
+    WorkerPermissions,
     WorkerType,
     cli,
     llm,
@@ -172,6 +173,8 @@ class Agent:
         await ctx.connect(auto_subscribe=AutoSubscribe.AUDIO_ONLY)
 
         participant = await ctx.wait_for_participant()
+
+        logger.info(f"<<<--•••-->>> participant attributes: {participant.attributes}")
 
         self.role = participant.attributes.get("role", None)
 
@@ -401,10 +404,9 @@ class Agent:
                 WorkerOptions(
                     entrypoint_fnc=self.entrypoint, 
                     worker_type=WorkerType.ROOM,
-                    # ws_url="ws://169.254.58.200:7880",
-                    # ws_url="wss://prototype-rwm34z4w.livekit.cloud",
-                    # ws_url="ws://144.24.200.112:7880",
-                    # ws_url="ws://144.24.200.112:443",
+                    permissions=WorkerPermissions(
+                        can_update_metadata=True,
+                    )
                     )
                 )
         finally:
