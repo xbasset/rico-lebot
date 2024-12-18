@@ -1,6 +1,7 @@
 flask # web framework
 flask-socketio # websockets
 gunicorn # WSGI server
+gevent-websocket # websocket server
 livekit >= 0.18.0 # WebRTC server
 livekit-protocol # livekit protocol
 livekit-agents>=0.11.0 # livekit agents

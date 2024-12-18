@@ -15,4 +15,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+EXPOSE 5001
+
 CMD ["supervisord", "-n"]
