@@ -49,6 +49,7 @@ function voiceUIComponent() {
         summary: null,
         isSummaryLoading: false,
         live_info: null,
+        live_info_history: [],
 
         init() {
             // Initialization code
@@ -298,7 +299,9 @@ function voiceUIComponent() {
                     'show',
                     async (data) => {
                         console.log('showing data:', data.payload);
-                        this.live_info = (this.live_info || '') + marked.parse(data.payload) + '<br/>';                        
+                        this.live_info_history.push(data.payload);
+                        // show the last live info
+                        this.live_info = marked.parse(this.live_info_history[this.live_info_history.length - 1]) + '<br/>';
                     }
                 )
 
