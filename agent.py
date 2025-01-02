@@ -23,6 +23,8 @@ from livekit.agents.multimodal import MultimodalAgent
 from livekit.plugins import openai
 from livekit.api import LiveKitAPI, DeleteRoomRequest
 
+from jinja2 import Template
+
 from core.config import OPENAI_API_KEY
 
 from rich import print
@@ -128,9 +130,19 @@ class Agent:
         super().__init__()
 
     def load_agent_instructions(self) -> str:
+        # check if there is a `data.py` file in the role folder. If so, load the variables to pass them to the template
+        if os.path.exists(f"roles/{self.role}/data.py"):
+            # import the variables from the data.py file
+            module = __import__(f"roles.{self.role}.data", fromlist=["*"])
+            data = {key: value for key, value in module.__dict__.items() if not key.startswith("__")}
+        else:
+            data = {}
+
+        print(f"data: {data}")
+
         with open(f"roles/{self.role}/agent.instruct") as f:
-            instructions = f.read()
-            
+            instructions = Template(f.read()).render(data=data)
+
         return instructions
 
     def get_session_config(self) -> SessionConfig:

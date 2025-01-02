@@ -1,0 +1,74 @@
+[
+	{
+	  "product_name": "Big Mac®",
+	  "id": "big-mac",
+	  "url": "/us/en-us/product/big-mac.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0005-999_BigMac_1564x1564-1:nutrition-calculator-tile",
+	  "description": "When a craving hits for those two all-beef patties it’s time to stop thinking about what’s on a Big Mac® and take a bite. The McDonald's Big Mac is a 100% beef burger with a taste like no other. The mouthwatering perfection starts with two 100% pure all beef patties and Big Mac Sauce sandwiched between a sesame seed bun. It’s topped off with pickles, crisp shredded lettuce, finely chopped onion and a slice of American cheese. It contains no artificial flavors, preservatives, or added colors from artificial sources. Our pickle contains an artificial preservative, so skip it if you like. There are 590 calories in a Big Mac from McDonald's. Pair it with any of our beverages or grab a Big Mac Combo Meal with our World Famous Fries® and Coca-Cola® or any of your favorite fountain drinks. Order a Big Mac today from the full menu in the app using Mobile Order & Pay for pickup or McDelivery® and earn points on eligible orders with MyMcDonald's Rewards to redeem for a free Big Mac.",
+	  "ingredients": ["Big Mac Bun","100% Beef Patty","Shredded Lettuce","Big Mac Sauce","Pasteurized Process American Cheese","Pickle Slices","Onions"]	
+	},
+	{
+	  "product_name": "Quarter Pounder®* with Cheese",
+	  "id": "quarter-pounder-with-cheese",
+	  "url": "/us/en-us/product/quarter-pounder-with-cheese.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile",
+	  "description": "Each Quarter Pounder with Cheese burger features a ¼ lb.* of 100% fresh beef that’s hot, deliciously juicy and cooked when you order. What comes on a Quarter Pounder? Each fresh beef burger is seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with slivered onions, tangy pickles and two slices of melty American cheese on a sesame seed bun. Our QPC® contains no artificial flavors, preservatives or added colors from artificial sources.^ Our pickle contains an artificial preservative, so skip it if you like. A Quarter Pounder with Cheese has 520 Calories.",
+	  "ingredients": ["Quarter Pound 100% Beef Patty*", "Quarter Pound Bun", "Pasteurized Process American Cheese", "Ketchup", "Pickle Slices", "Onions", "Mustard"]
+	},
+	{
+	  "product_name": "Double Quarter Pounder®* with Cheese",
+	  "id": "double-quarter-pounder-with-cheese",
+	  "url": "/us/en-us/product/double-quarter-pounder-with-cheese.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_3426-005_DoubleQuarterPounderwithCheese_1564x1564-1:nutrition-calculator-tile",
+	  "description": "Each Double Quarter Pounder with Cheese features two quarter pound* 100% fresh beef burger patties that are hot, deliciously juicy and cooked when you order. McDonald’s beef patties are seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with slivered onions, tangy pickles and two slices of melty cheese on a sesame seed bun. It contains no artificial flavors, preservatives or added colors from artificial sources.** Our pickle contains an artificial preservative, so skip it if you like. There are 740 calories in a Double Quarter Pounder with Cheese from McDonald’s. Enjoy it as is or grab a Double Quarter Pounder with Cheese Meal served with our World Famous Fries® and your choice of soft drink. Order a Double QPC today from our full menu in the app using contactless Mobile Order & Pay^ for pickup or McDelivery®.",
+	  "ingredients": ["Quarter Pound 100% Beef Patty*", "Quarter Pound Bun", "Pasteurized Process American Cheese", "Ketchup", "Pickle Slices", "Onions", "Mustard"]
+	},
+	{
+	  "product_name": "Quarter Pounder®* with Cheese Deluxe",
+	  "id": "quarter-pounder-with-cheese-deluxe",
+	  "url": "/us/en-us/product/deluxe-quarter-pounder-with-cheese.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202309_4282_QuarterPounderCheeseDeluxe_Shredded_1564x1564-1:nutrition-calculator-tile",
+	  "description": "The Quarter Pounder with Cheese Deluxe is a fresh take on a classic. Crisp leaf lettuce, fresh tomato, and slivered onions are added to a ¼ lb.* of 100% fresh beef that’s hot, deliciously juicy and cooked when you order. It’s seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with two slices of melty American cheese on a sesame seed bun. Our QPC® Deluxe contains no artificial flavors, preservatives or added colors from artificial sources.** Our pickle contains an artificial preservative, so skip it if you like. A Quarter Pounder with Cheese Deluxe has 540 Calories.",
+	  "ingredients": ["Quarter Pound 100% Beef Patty*", "Quarter Pound Bun", "Pasteurized Process American Cheese", "Ketchup", "Pickle Slices", "Onions", "Mustard"]
+	},
+	{
+	  "product_name": "McDouble®",
+	  "id": "mcdouble",
+	  "url": "/us/en-us/product/mcdouble.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0592-999_McDouble_Alt_1564x1564-1:nutrition-calculator-tile",
+	  "description": "The McDouble® is a McDonald’s burger that is made with two 100% pure beef patties seasoned with just a pinch of salt and pepper. It’s topped with tangy pickles, chopped onions, ketchup, mustard and a slice of melty American cheese. It contains no artificial flavors, preservatives or added colors from artificial sources.* Our pickle contains an artificial preservative, so skip it if you like. There are 390 calories in a McDouble from McDonald's. Order one today from the full menu in the app using contactless Mobile Order & Pay for pickup or McDelivery® and earn points on every order with MyMcDonald's Rewards to redeem for a free McDouble.",
+	  "ingredients": ["McDouble Bun", "100% Beef Patty", "Ketchup", "Mustard", "Pickle Slices", "Onions", "Pasteurized Process American Cheese"]
+	},
+	{
+	  "product_name": "Bacon Quarter Pounder®* with Cheese",
+	  "id": "bacon-quarter-pounder-with-cheese",
+	  "url": "/us/en-us/product/quarter-pounder-bacon.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202201_4295-005_BaconQPC_1564x1564-1:nutrition-calculator-tile",
+	  "description": "The Bacon Quarter Pounder with Cheese is a fresh take on a classic. Crisp leaf lettuce, fresh tomato, and slivered onions are added to a ¼ lb.* of 100% fresh beef that’s hot, deliciously juicy and cooked when you order. It’s seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with two slices of melty American cheese, applewood smoked bacon, and a dollop of creamy Big Mac Special Sauce on a sesame seed bun. Our Bacon QPC® contains no artificial flavors, preservatives or added colors from artificial sources.** Our pickle contains an artificial preservative, so skip it if you like. A Bacon Quarter Pounder with Cheese has 640 Calories.",
+	  "ingredients": ["Quarter Pound 100% Beef Patty*", "Quarter Pound Bun", "Pasteurized Process American Cheese", "Ketchup", "Pickle Slices", "Onions", "Mustard"]
+	},
+	{
+	  "product_name": "Cheeseburger",
+	  "id": "cheeseburger",
+	  "url": "/us/en-us/product/cheeseburger.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0003-999_CheeseburgerAlt_1564x1564-1:nutrition-calculator-tile",
+	  "description": "Enjoy the cheesy deliciousness of a McDonald’s Cheeseburger! Our simple, classic cheeseburger begins with a 100% pure beef burger patty seasoned with just a pinch of salt and pepper. The McDonald’s Cheeseburger is topped with a tangy pickle, chopped onions, ketchup, mustard, and a slice of melty American cheese. It contains no artificial flavors, preservatives or added colors from artificial sources.* Our pickle contains an artificial preservative, so skip it if you like. For more delicious burger variations explore the McDonald’s burger menu. There are 300 calories in a McDonald’s Cheeseburger. Order one today from the full menu in the app using contactless Mobile Order & Pay for pickup or McDelivery® and earn points on every order with MyMcDonald's Rewards to redeem for a free Cheeseburger.",
+	  "ingredients": ["Cheeseburger Bun", "100% Beef Patty", "Ketchup", "Mustard", "Pickle Slices", "Onions", "Pasteurized Process American Cheese"]
+	},
+	{
+	  "product_name": "Double Cheeseburger",
+	  "id": "double-cheeseburger",
+	  "url": "/us/en-us/product/double-cheeseburger.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0004-999_DoubleCheeseburger_Alt_1564x1564-1:nutrition-calculator-tile",
+	  "description": "The McDonald’s Double Cheeseburger features two 100% pure beef burger patties seasoned with just a pinch of salt and pepper. It’s topped with tangy pickles, chopped onions, ketchup, mustard, and two slices of melty American cheese. It contains no artificial flavors, preservatives or added colors from artificial sources.* Our pickle contains an artificial preservative, so skip it if you like. There are 440 calories in a McDonald’s Double Cheeseburger. Order one today from the full menu in the app using contactless Mobile Order & Pay for pickup or McDelivery® and earn points on every order with MyMcDonald's Rewards to redeem for a free Double Cheeseburger.",
+	  "ingredients": ["Double Cheeseburger Bun", "100% Beef Patty", "Ketchup", "Mustard", "Pickle Slices", "Onions", "Pasteurized Process American Cheese"]
+	},
+	{
+	  "product_name": "Hamburger: The Classic McDonald's Burger",
+	  "id": "hamburger-the-classic-mcdonalds-burger",
+	  "url": "/us/en-us/product/hamburger.html",
+	  "image": "https://s7d1.scene7.com/is/image/mcdonalds/DC_202302_0001-999_Hamburger_Alt_1564x1564-1:nutrition-calculator-tile",
+	  "description": "The McDonald’s Hamburger is a 100% beef burger seasoned with a pinch of salt and pepper, topped with a tangy pickle, chopped onions, ketchup, and mustard. It contains no artificial flavors, preservatives or added colors from artificial sources.* Our pickle contains an artificial preservative, so skip it if you like. There are 250 calories in a McDonald’s Hamburger. Order one today from the full menu in the app using contactless Mobile Order & Pay for pickup or McDelivery® and earn points on every order with MyMcDonald's Rewards to redeem for a free Hamburger.",
+	  "ingredients": ["Hamburger Bun", "100% Beef Patty", "Ketchup", "Mustard", "Pickle Slices", "Onions"]
+	}
+  ]
