@@ -2,7 +2,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 from flask import Flask, session, request, render_template
-from core.config import APP_SECRET_KEY, LLM_MODEL, SHOW_PRIVATE_ROLES
+from core.config import APP_SECRET_KEY, LLM_MODEL, PRIVATE_ROLES_PATTERN_MATCH, SHOW_PRIVATE_ROLES
 
 from extensions import socketio
 
@@ -27,13 +27,21 @@ def load_roles(show_private=SHOW_PRIVATE_ROLES):
     global roles
     roles = []
     for resource in os.listdir("roles"):
-        if resource != "__pycache__" and resource != "__init__.py" and resource != "private":
-            if os.path.isdir(f"roles/{resource}"):
-                roles.append({"folder": resource, "name": resource.replace("_", " ").replace("-", " ").title()})
-        elif resource == "private" and show_private:
+        if resource == "private" and show_private:
             for role in os.listdir("roles/private"):
                 if os.path.isdir(f"roles/private/{role}"):
-                    roles.append({"folder": f"{resource}/{role}", "name": role.replace("_", " ").replace("-", " ").title()})
+                    if PRIVATE_ROLES_PATTERN_MATCH:
+                        for pattern in PRIVATE_ROLES_PATTERN_MATCH:
+                            if pattern in role:
+                                roles.append({"folder": f"{resource}/{role}", "name": role.replace("_", " ").replace("-", " ").title()})
+                    else:
+                        roles.append({"folder": f"{resource}/{role}", "name": role.replace("_", " ").replace("-", " ").title()})
+        else:
+            if resource != "__pycache__" and resource != "__init__.py" and resource != "private" and not show_private:
+                if os.path.isdir(f"roles/{resource}"):
+                    roles.append({"folder": resource, "name": resource.replace("_", " ").replace("-", " ").title()})
+    # sort roles by name
+    roles = sorted(roles, key=lambda x: x["name"])
 
         
         

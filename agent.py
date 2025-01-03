@@ -152,7 +152,7 @@ class Agent:
         # check if there is a config.py in the role folder. If so, load the config from there
         if os.path.exists(f"roles/{self.role}/config.py"):
             # import the variables from the config.py file
-            module = __import__(f"roles.{self.role}.config", fromlist=["*"])
+            module = __import__(f"roles.{self.role.replace('/','.')}.config", fromlist=["*"])
             voice = module.voice if hasattr(module, "voice") else "coral"
 
         config = SessionConfig(
@@ -231,7 +231,7 @@ class Agent:
                     class_name = class_lines[0].split("(")[0].split(" ")[-1]
 
                 # import the class
-                module = __import__(f"roles.{self.role}.functions", fromlist=[class_name])
+                module = __import__(f"roles.{self.role.replace('/', '.')}.functions", fromlist=[class_name])
                 functions = getattr(module, class_name)(ctx)
                 logger.info(f"🧙✅ Custom functions loaded from {self.role}/functions.py")
 
