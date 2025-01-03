@@ -13,3 +13,4 @@ LIVEKIT_URL = os.getenv("LIVEKIT_URL")
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 
 SHOW_PRIVATE_ROLES = False
+PRIVATE_ROLES_PATTERN_MATCH = None # ["💼"] # list of all strings pattern that match with roles names will be displayed
