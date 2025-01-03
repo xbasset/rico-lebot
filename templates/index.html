@@ -29,11 +29,13 @@
     </div>
     <div class="flex flex-col space-y-8">
         <h2 class="text-4xl font-bold text-gray-900">Role to play:</h2>
-        {% for role in roles %}
-        <button class="px-8 py-4 bg-blue-500 text-4xl text-white rounded hover:bg-blue-600" onclick="window.location.href='/run/{{ role.folder }}'">
-            {{ role.name }}
-        </button>
-        {% endfor %}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {% for role in roles %}
+            <button class="px-8 py-2 bg-blue-500 text-2xl text-white text-left rounded hover:bg-blue-600" onclick="window.location.href='/run/{{ role.folder }}'">
+                {{ role.name }}
+            </button>
+            {% endfor %}
+        </div>
     </div>
 </div>
 </body>
