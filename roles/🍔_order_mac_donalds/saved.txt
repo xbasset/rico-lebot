@@ -1,0 +1,3 @@
+250102144646 > agent-AJ_iCojndyrZBDU: Double Cheeseburger
+250102144901 > agent-AJ_7RKgu3X9x5Fz: Customer wants to order a McDouble®.
+250102160851 > agent-AJ_VUnmENo9JhAY: Order: Double Quarter Pounder® with Cheese.
